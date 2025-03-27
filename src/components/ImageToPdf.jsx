@@ -208,8 +208,10 @@ const ImageToPdf = () => {
             </button>
             <button
               onClick={handleDownloadPDF}
-              className="flex-1 bg-indigo-600 text-white font-medium py-3 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center"
-              disabled={images.length === 0 || isGenerating}
+              className={`flex-1 text-white font-medium py-3 rounded-lg transition-colors flex items-center justify-center ${
+                images.length === 0 ? 'bg-indigo-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 cursor-pointer'
+              }`}
+              disabled={isGenerating}
             >
               {isGenerating ? (
                 <>
@@ -239,6 +241,9 @@ const ImageToPdf = () => {
             <li>You can drag and drop multiple images at once</li>
           </ul>
         </div>
+        <p className="text-gray-700 mt-4 text-center">Developed and design by <a
+        target="_blank"
+         href="https://www.linkedin.com/in/talha-nawaz-5421931a4/"className="text-indigo-600 hover:underline hover:underline-offset-4">Talha Nawaz</a></p>
       </div>
 
       <ToastContainer position="top-center" autoClose={2000} theme="colored" />
